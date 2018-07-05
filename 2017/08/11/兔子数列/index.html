@@ -16,18 +16,18 @@
 
                 
 
-                                        <meta name="description" content="轮播图">
-<meta name="keywords" content="fadeIn fadeOut">
+                                        <meta name="description" content="兔子数列">
+<meta name="keywords" content="基本实现与优化、递归加闭包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JQuery 轮播图">
-<meta property="og:url" content="http://yoursite.com/2017/06/03/JQuery轮播图/index.html">
+<meta property="og:title" content="斐波那契数列计算">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/兔子数列/index.html">
 <meta property="og:site_name" content="王新鹏的博客">
-<meta property="og:description" content="轮播图">
+<meta property="og:description" content="兔子数列">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-05T16:01:04.193Z">
+<meta property="og:updated_time" content="2018-07-05T17:39:48.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQuery 轮播图">
-<meta name="twitter:description" content="轮播图">
+<meta name="twitter:title" content="斐波那契数列计算">
+<meta name="twitter:description" content="兔子数列">
 
                                             <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -61,7 +61,7 @@
                                                                                                 
                                                                                                     <title>
                                                                                                         
-                                                                                                            JQuery 轮播图 |
+                                                                                                            斐波那契数列计算 |
                                                                                                                 
                                                                                                                     王新鹏的博客
                                                                                                     </title>
@@ -272,11 +272,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-JQuery轮播图" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-兔子数列" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/03/JQuery轮播图/" class="article-date">
-      <time datetime="2017-06-03T13:30:00.000Z" itemprop="datePublished">2017-06-03</time>
+      <a href="/2017/08/11/兔子数列/" class="article-date">
+      <time datetime="2017-08-10T16:00:00.000Z" itemprop="datePublished">2017-08-11</time>
 </a>
 
 
@@ -291,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JQuery 轮播图
+      斐波那契数列计算
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fadeIn-fadeOut/">fadeIn fadeOut</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基本实现与优化、递归加闭包/">基本实现与优化、递归加闭包</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,212 +313,22 @@
       
           
         <ul>
-<li>思路：<ul>
-<li>设置结构 一个大盒子包含图片（嵌套在a标签中）、左右标签、还有数字按钮</li>
-<li>设置第一张图片显示其他的隐藏</li>
-<li>设置主要功能需求 定义变量i 和定时器</li>
-<li>鼠标进过数字按钮  clearInterval 清除定时器，停止自动轮播</li>
-<li>左右箭头点击事件轮播 点左判断i=0时 i=8  i– 点右判断if（i=7）{ i=-1}i++ </li>
-<li>封装定时轮播函数 ，方便以上方法调用</li>
-<li>封装显示函数，方便以上函数调用 使用的是fadeIn 和 fadeOut 动画</li>
+<li><p>思路 </p>
+<p>​</p>
+<ul>
+<li>原生编程 <ul>
+<li>通过观察发现所求的n的值由前1个与前2个值相加  so     n =（ n-1） + （n-2） </li>
+<li>每次往下加太过繁琐，所以设置一个空的对象来储存计算过的值</li>
+<li>通过一个三元表达式来判断是调用保存的值 还是 计算未计算的值 并 保存</li>
+<li>最外层用一个自执行函数来防止外部的操作，使空对象成为私有变量</li>
+<li>return 函数方法</li>
+</ul>
+</li>
+<li>个人感觉这样优化只会提高运算速度，但阻止了js回收机制，浪费内存</li>
 </ul>
 </li>
 </ul>
-<h4 id="结构初始化"><a href="#结构初始化" class="headerlink" title="结构初始化"></a>结构初始化</h4><p>/<em>css初始化</em>/</p>
-<p>body,ul,h1,h2,h3,h4,h5,h6,input,p,dl,dt,dd,span {</p>
-<p>​    margin: 0;</p>
-<p>​    padding: 0;</p>
-<p>}</p>
-<p>body {</p>
-<p>​    font: 14px arial,”microsoft yahei”;</p>
-<p>}</p>
-<p>li {</p>
-<p>​    list-style: none;</p>
-<p>} </p>
-<p>img {</p>
-<p>​    border: 0 none;</p>
-<p>​    vertical-align: middle;</p>
-<p>}</p>
-<p>h1,h2,h3,h4,h5,h6 {</p>
-<p>​    font-weight: normal;</p>
-<p>}</p>
-<p>input {</p>
-<p>​    border: 0 none;</p>
-<p>​    outline-style: none;</p>
-<p>​    vertical-align: top;</p>
-<p>}</p>
-<p>a {</p>
-<p>​    text-decoration: none;</p>
-<p>​    color: #333;</p>
-<p>}</p>
-<p>.w {</p>
-<p>​    width: 1348px;</p>
-<p>​    margin: 0 auto;</p>
-<p>}</p>
-<p>.fl{ </p>
-<p>​    float: left;</p>
-<p> }</p>
-<p> .fr {</p>
-<p>​    float: right;</p>
-<p> }</p>
-<p> .clearfix:before, .clearfix:after {</p>
-<p>​    content: “”;</p>
-<p>​    display: table;</p>
-<p> }</p>
-<p> .clearfix:after {</p>
-<p>​    clear: both;</p>
-<p> }</p>
-<p>.red {</p>
-<p>​    color: red;</p>
-<p>}</p>
-<p>i {</p>
-<p>​    font-style: normal;</p>
-<p>}</p>
-<h4 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h4><p>#igs {</p>
-<p>​    position: relative;</p>
-<p>​    margin: 0 auto;</p>
-<p>​    width: 790px;</p>
-<p>​    height: 340px;</p>
-<p>​    margin-top: 100px;</p>
-<p>}</p>
-<p>.ig {</p>
-<p>​    position: absolute;</p>
-<p>}</p>
-<p>.btn {</p>
-<p>​    display: inline-block;</p>
-<p>​    height: 50px;</p>
-<p>​    width: 30px;</p>
-<p>​    line-height: 50px;</p>
-<p>​    background-color: rgba(0, 0, 0, .5);</p>
-<p>​    color: aliceblue;</p>
-<p>​    font-size: 18px;</p>
-<p>​    cursor: pointer;</p>
-<p>}</p>
-<p>.bt1 {</p>
-<p>​    position: absolute;</p>
-<p>​    left: 0px;</p>
-<p>​    top: 50%;</p>
-<p>​    border-radius: 0 20px 20px 0;</p>
-<p>}</p>
-<p>.bt2 {</p>
-<p>​    position: absolute;</p>
-<p>​    right: 0;</p>
-<p>​    top: 50%;</p>
-<p>​    text-align: right;</p>
-<p>​    border-radius: 20px 0 0 20px;</p>
-<p>}</p>
-<p>.tab {</p>
-<p>​    width: 15px;</p>
-<p>​    height: 15px;</p>
-<p>​    margin-right: 5px;</p>
-<p>​    background-color: rgba(255, 255, 255, .7);</p>
-<p>​    float: left;</p>
-<p>​    border-radius: 50%;</p>
-<p>​    cursor: pointer;</p>
-<p>​    text-align: center;</p>
-<p>}</p>
-<p>#tabs {</p>
-<p>​    position: absolute;</p>
-<p>​    bottom: 0;</p>
-<p>​    right: 0;</p>
-<p>}</p>
-<h4 id="结构样式"><a href="#结构样式" class="headerlink" title="结构样式"></a>结构样式</h4><p>&lt;!DOCTYPE html&gt;</p>
-<p><code>&lt;html lang=&quot;en&quot;&gt;</code></p>
-<p><code>&lt;head&gt;</code></p>
-<p>​    <code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></p>
-<p>​   <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></p>
-<p>​    <code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</code></p>
-<p>​  <code>&lt;title&gt;Document&lt;/title&gt;</code></p>
-<p>​    <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/common.css&quot;&gt;</code></p>
-<p>​    <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/index.css&quot;&gt;</code></p>
-<p><code>&lt;/head&gt;</code></p>
-<p><code>&lt;body&gt;</code></p>
-<p>​    <code>&lt;div id=&quot;igs&quot;&gt;</code></p>
-<p>​        <code>&lt;a href=&quot;#&quot; class=&quot;ig&quot;&gt;img/a&gt;</code></p>
-<p>​        <code>&lt;a href=&quot;#&quot; class=&quot;ig&quot;&gt;img&lt;/a&gt;</code></p>
-<p>​      <code>&lt;a href=&quot;#&quot; class=&quot;ig&quot;&gt;img&lt;/a&gt;</code></p>
-<p>​       <code>&lt;a href=&quot;#&quot; class=&quot;ig&quot;&gt;img&lt;/a&gt;</code></p>
-<p>​        <code>&lt;a href=&quot;#&quot; class=&quot;ig&quot;&gt;img&lt;/a&gt;</code></p>
-<p>​        <code>&lt;a href=&quot;#&quot; class=&quot;ig&quot;&gt;img&lt;/a&gt;</code></p>
-<p>​      <code>&lt;a href=&quot;#&quot; class=&quot;ig&quot;&gt;img&lt;/a&gt;</code></p>
-<p>​       <code>&lt;a href=&quot;#&quot; class=&quot;ig&quot;&gt;img&lt;/a&gt;</code></p>
-<p>​        <code>&lt;span class=&quot;btn bt1&quot;&gt;◁&lt;/span&gt;</code></p>
-<p>​       <code>&lt;span class=&quot;btn bt2&quot;&gt;▷&lt;/span&gt;</code></p>
-<p>​        <code>&lt;ul id=&quot;tabs&quot;&gt;</code></p>
-<p>​            <code>&lt;li class=&quot;tab&quot;&gt;1&lt;/li&gt;</code></p>
-<p>​            <code>&lt;li class=&quot;tab&quot;&gt;2&lt;/li&gt;</code></p>
-<p>​            <code>&lt;li class=&quot;tab&quot;&gt;3&lt;/li&gt;</code></p>
-<p>​           <code>&lt;li class=&quot;tab&quot;&gt;4&lt;/li&gt;</code></p>
-<p>​            <code>&lt;li class=&quot;tab&quot;&gt;5&lt;/li&gt;</code></p>
-<p>​            <code>&lt;li class=&quot;tab&quot;&gt;6&lt;/li&gt;</code></p>
-<p>​            <code>&lt;li class=&quot;tab&quot;&gt;7&lt;/li&gt;</code></p>
-<p>​            <code>&lt;li class=&quot;tab&quot;&gt;8&lt;/li&gt;</code></p>
-<p>​        <code>&lt;/ul&gt;</code></p>
-<p>​  <code>&lt;/div&gt;</code></p>
-<p><code>&lt;/body&gt;</code></p>
-<p><code>&lt;script src=&quot;./js/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;</code></p>
-<p>script src=”./js/lunbo.js”&gt;<code>&lt;/script&gt;</code></p>
-<p><code>&lt;script&gt;</code></p>
-<p>​   $(‘#igs’).lun();</p>
-<p><code>&lt;/script&gt;</code></p>
-<p><code>&lt;/html&gt;</code></p>
-<h4 id="jquery-实现"><a href="#jquery-实现" class="headerlink" title="jquery 实现"></a>jquery 实现</h4><p>$.fn.lun = function() {</p>
-<p>​    var i = 0;</p>
-<p>​    var timer;</p>
-<p>​    $(‘.ig’).eq(0).show().siblings(‘.ig’).hide();</p>
-<p>​    // 调用显示函数</p>
-<p>​    showTime();</p>
-<p>​    $(‘#igs’).on({</p>
-<p>​        mouseover: function() {</p>
-<p>​            clearInterval(timer);</p>
-<p>​        },</p>
-<p>​        mouseleave: function() {</p>
-<p>​            showTime();</p>
-<p>​        }</p>
-<p>​    });</p>
-<p>​    // 鼠标经过数字切换相对应的图片</p>
-<p>​    $(‘.tab’).hover(function() {</p>
-<p>​            i = $(this).index();</p>
-<p>​            show();</p>
-<p>​            clearInterval(timer);</p>
-<p>​        }, function() {</p>
-<p>​            show();</p>
-<p>​        })</p>
-<p>​        // 点击右箭头</p>
-<p>​    $(‘.bt2’).on(‘click’, function() {</p>
-<p>​        clearInterval(timer);</p>
-<p>​        if (i == 7) {</p>
-<p>​            i = -1;</p>
-<p>​        }</p>
-<p>​        i++;</p>
-<p>​        show();</p>
-<p>​        showTime();</p>
-<p>​    });</p>
-<p>​    // 点击左箭头</p>
-<p>​    $(‘.bt1’).on(‘click’, function() {</p>
-<p>​        clearInterval(timer);</p>
-<p>​        if (i == 0) {</p>
-<p>​            i = 8;</p>
-<p>​        }</p>
-<p>​        i–;</p>
-<p>​        show();</p>
-<p>​        showTime();</p>
-<p>​    });</p>
-<p>​    //  轮播函数</p>
-<p>​    function showTime() {</p>
-<p>​        timer = setInterval(function() {</p>
-<p>​            show();</p>
-<p>​            if (i == 7) {</p>
-<p>​                i = -1;</p>
-<p>​            }</p>
-<p>​            i++;</p>
-<p>​        }, 2000)</p>
-<p>​    };</p>
-<p>​    // 显示函数</p>
-<p>​    function show() {</p>
-<p>​        $(‘.ig’).eq(i).fadeIn(300).siblings(‘.ig’).fadeOut(300);</p>
-<p>​    }</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 观察以下数列规律，计算数列中第n个位置的值</span><br><span class="line">       	// 1 1 2 3 5 8 13 21 34 55 89 144...</span><br><span class="line">        //   规律：最前面两个数固定是1，后续的每个数是前两个数的和</span><br><span class="line">        var getFB = (function(n) &#123;</span><br><span class="line">            var obj = &#123;&#125;;//后期优化</span><br><span class="line">            // return getFb(n - 1) + getFb(n - 2); // 原始版</span><br><span class="line">            return function(n) &#123;</span><br><span class="line">                if (n == 1 || n == 2) &#123;</span><br><span class="line">                    return 1;</span><br><span class="line">                &#125;</span><br><span class="line">                return obj[n] ? obj[n] : (obj[n] = arguments.callee(n - 1) + arguments.callee(n - 2)); // 后期优化</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)();</span><br><span class="line"></span><br><span class="line">        console.log(getFB(12))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -527,13 +337,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/03/JQuery轮播图/">JQuery 轮播图</a></p>
+        <p><span>本文标题:</span><a href="/2017/08/11/兔子数列/">斐波那契数列计算</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">王新鹏</a></p>
-        <p><span>发布时间:</span>2017-06-03, 21:30:00</p>
-        <p><span>最后更新:</span>2018-07-06, 00:01:04</p>
+        <p><span>发布时间:</span>2017-08-11, 00:00:00</p>
+        <p><span>最后更新:</span>2018-07-06, 01:39:48</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/03/JQuery轮播图/" title="JQuery 轮播图">http://yoursite.com/2017/06/03/JQuery轮播图/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/03/JQuery轮播图/　　作者: 王新鹏" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/11/兔子数列/" title="斐波那契数列计算">http://yoursite.com/2017/08/11/兔子数列/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/08/11/兔子数列/　　作者: 王新鹏" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -546,15 +356,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/08/11/兔子数列/">
-                    斐波那契数列计算
+                <a href="/2017/10/10/拉票器jq/">
+                    投票器小案例
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/04/10/js原生轮播图/">
-                    js原生轮播图
+                <a href="/2017/06/03/JQuery轮播图/">
+                    JQuery 轮播图
                 </a>
             </div>
         
@@ -566,7 +376,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#结构初始化"><span class="toc-number">1.</span> <span class="toc-text">结构初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css样式"><span class="toc-number">2.</span> <span class="toc-text">css样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结构样式"><span class="toc-number">3.</span> <span class="toc-text">结构样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jquery-实现"><span class="toc-number">4.</span> <span class="toc-text">jquery 实现</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -602,7 +412,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"JQuery 轮播图　| 王新鹏的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"斐波那契数列计算　| 王新鹏的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -622,7 +432,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/11/兔子数列/" title="上一篇: 斐波那契数列计算">
+            <a href="/2017/10/10/拉票器jq/" title="上一篇: 投票器小案例">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -630,7 +440,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/04/10/js原生轮播图/" title="下一篇: js原生轮播图">
+            <a href="/2017/06/03/JQuery轮播图/" title="下一篇: JQuery 轮播图">
                 <i class="fa fa-angle-right"></i>
             </a>
         
