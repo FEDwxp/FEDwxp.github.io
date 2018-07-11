@@ -16,18 +16,18 @@
 
                 
 
-                                        <meta name="description" content="closure(闭包)">
-<meta name="keywords" content="闭包小案列、闭包解释">
+                                        <meta name="description" content="jquery ajax">
+<meta name="keywords" content="get post ajax">
 <meta property="og:type" content="article">
-<meta property="og:title" content="closure(闭包)">
-<meta property="og:url" content="http://yoursite.com/2017/12/03/闭包/index.html">
+<meta property="og:title" content="封装异步">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/juueryAjax封装/index.html">
 <meta property="og:site_name" content="王新鹏的博客">
-<meta property="og:description" content="closure(闭包)">
+<meta property="og:description" content="jquery ajax">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-05T06:59:24.737Z">
+<meta property="og:updated_time" content="2018-07-11T06:06:33.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="closure(闭包)">
-<meta name="twitter:description" content="closure(闭包)">
+<meta name="twitter:title" content="封装异步">
+<meta name="twitter:description" content="jquery ajax">
 
                                             <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -61,7 +61,7 @@
                                                                                                 
                                                                                                     <title>
                                                                                                         
-                                                                                                            closure(闭包) |
+                                                                                                            封装异步 |
                                                                                                                 
                                                                                                                     王新鹏的博客
                                                                                                     </title>
@@ -272,11 +272,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-闭包" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-juueryAjax封装" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/03/闭包/" class="article-date">
-      <time datetime="2017-12-02T16:00:00.000Z" itemprop="datePublished">2017-12-03</time>
+      <a href="/2017/08/02/juueryAjax封装/" class="article-date">
+      <time datetime="2017-08-02T13:00:00.000Z" itemprop="datePublished">2017-08-02</time>
 </a>
 
 
@@ -291,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      closure(闭包)
+      封装异步
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包小案列、闭包解释/">闭包小案列、闭包解释</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/get-post-ajax/">get post ajax</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,32 +312,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ul>
-<li>闭包</li>
-</ul>
-<ul>
-<li>函数内的函数， 可以读取其他函数内部变量的函数</li>
-<li>闭包使得外部函数返回后JavaScript回收机制不生效，因为内部函数执行需要依赖外部函数的变量（参数 或 自定义的变量）</li>
-<li>闭包是将内部函数和外部函数链接起来的桥梁</li>
-</ul>
-<p><code>&lt;body&gt;</code></p>
-<p>  <code>&lt;button class=&quot;btn1&quot;&gt;按钮1&lt;/button&gt;</code></p>
-<p>​    <code>&lt;button class=&quot;btn2&quot;&gt;按钮2&lt;/button&gt;</code></p>
-<p>  <code>&lt;button class=&quot;btn3&quot;&gt;按钮3&lt;/button&gt;</code></p>
-<p>   <code>&lt;script&gt;</code></p>
-<p>​        var bt1 = document.querySelector(‘.btn1’);</p>
-<p>​        var bt2 = document.querySelector(‘.btn2’);</p>
-<p>​        var bt3 = document.querySelector(‘.btn3’);</p>
-<p>​        function changeColor(color) {</p>
-<p>​            return function() {</p>
-<p>​                document.body.style.backgroundColor = color;</p>
-<p>​            }</p>
-<p>​        }</p>
-<p>​        bt1.onclick = changeColor(‘blue’);</p>
-<p>​        bt2.onclick = changeColor(‘red’);</p>
-<p>​        bt3.onclick = changeColor(‘green’);</p>
-<p><code>&lt;/script&gt;</code></p>
-<p><code>&lt;/body</code></p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;../jquery-1.12.4.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    //定义$对象，再定义成员方法</span><br><span class="line">        $ = &#123;</span><br><span class="line">            // 编写一个具体的案列</span><br><span class="line">            // 具体案例:  封装一个get方法，能够发送ajax请求，请求1.php文件，并且能接收到1.php的返回数据</span><br><span class="line">            get: function(url, obj, success, dataType) &#123;</span><br><span class="line">                // ① 使用原生js完成整个ajax请求过程 </span><br><span class="line">                var xhr = this.creatxhr();</span><br><span class="line">                xhr.onreadystatechange = function() &#123;</span><br><span class="line">                    if (xhr.readyState == 4) &#123;</span><br><span class="line">                      // 处理接收的返回的字符串</span><br><span class="line">                        var result = xhr.responseText;</span><br><span class="line">                        // 判断是否是json的格式，如果是就转换成json</span><br><span class="line">                        if (dataType == &apos;json&apos;) &#123;</span><br><span class="line">                            result = JSON.parse(result);</span><br><span class="line">                        &#125;</span><br><span class="line">                        //此处的succes为调用函数，传入接收的数据，在调用get方法时就可以通过success函							数做自己的操作了</span><br><span class="line">                        success(result);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                // 调用数据处理函数，并和发送的地址用？拼接起来，就可以发送各种数据了</span><br><span class="line">                str = this.parms(obj);</span><br><span class="line">                url = url + &apos;?&apos; + str;</span><br><span class="line">                xhr.open(&apos;get&apos;, url);</span><br><span class="line">                xhr.send(null);</span><br><span class="line">            &#125;,</span><br><span class="line">            // 处理兼容的问题</span><br><span class="line">            creatxhr: function() &#123;</span><br><span class="line">                if (window.XMLHttpRequest) &#123;</span><br><span class="line">                    var xhr = new XMLHttpRequest();</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    var xhr = new ActiveXObject(&apos;Msxml2.XMLHHTP&apos;);</span><br><span class="line">                &#125;</span><br><span class="line">                return xhr;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 将传入的参数（要发送的数据）处理 格式为键值对形式 列如 name=jack&amp;age=18，方便向后台传输调用</span><br><span class="line">            parms: function(obj) &#123;</span><br><span class="line">                var str = &apos;&apos;;</span><br><span class="line">                for (var key in obj) &#123;</span><br><span class="line">                    str += key + &quot;=&quot; + obj[key] + &apos;&amp;&apos;;</span><br><span class="line">                &#125;</span><br><span class="line">                str = str.slice(0, -1);</span><br><span class="line">                return str;</span><br><span class="line">            &#125;,</span><br><span class="line">            post: function(url, obj, success, dataType) &#123;</span><br><span class="line">                var xhr = this.creatxhr();</span><br><span class="line">                xhr.onreadystatechange = function() &#123;</span><br><span class="line">                    if (xhr.readyState == 4) &#123;</span><br><span class="line">                    // 处理接收的返回的字符串</span><br><span class="line">                        var result = xhr.responseText;</span><br><span class="line">                        // 判断是否是json的格式，如果是就转换成json</span><br><span class="line">                        if (dataType == &apos;json&apos;) &#123;</span><br><span class="line">                            result = JSON.parse(result);</span><br><span class="line">                        &#125;</span><br><span class="line">                       //此处的succes为调用函数，传入接收的数据，在调用get方法时就可以通过success函数</span><br><span class="line">                       做自己的操作了</span><br><span class="line">                        success(result);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                var str = this.parms(obj);</span><br><span class="line">                xhr.open(&apos;post&apos;, url);</span><br><span class="line">                xhr.setRequestHeader(&apos;content-type&apos;, &apos;application/x-www-form-urllencoded&apos;);</span><br><span class="line">                xhr.send(str);</span><br><span class="line">            &#125;,</span><br><span class="line">            ajax: function(obj) &#123;</span><br><span class="line">            	// 将ajax的属性使用变量保存，方便调用</span><br><span class="line">                var url = obj.url;</span><br><span class="line">                var data = obj.data || &#123;&#125;; // 判断是否发送数据</span><br><span class="line">                var type = obj.type || &apos;get&apos;; // 判断方法</span><br><span class="line">                var dataType = obj.dataType || &apos;text&apos;; // 判断接收的数据格式</span><br><span class="line">                var success = obj.success; </span><br><span class="line">                // 判断方法，将变量传入实现ajax的简易封装</span><br><span class="line">                if (type = &apos;get&apos;) &#123;</span><br><span class="line">                    this.get(url, data, success, dataType);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    this.post(url, data, success, dataType);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">       	// 以下为三种方法的调用</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: &apos;1.php&apos;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                &quot;name&quot;: &quot;jakk&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            type: &apos;post&apos;,</span><br><span class="line">            dataType: &apos;json&apos;,</span><br><span class="line">            success: function(msg) &#123;</span><br><span class="line">                alert(msg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        // $.get(&apos;1.php&apos;, &#123;</span><br><span class="line">        //     &quot;name&quot;: &quot;jack&quot;</span><br><span class="line">        // &#125;, function(msg) &#123;</span><br><span class="line">        //     console.log(msg);</span><br><span class="line">        // &#125;, &apos;json&apos;)</span><br><span class="line">        // $.post(&apos;1.php&apos;, &#123;</span><br><span class="line">        //     &quot;name&quot;: &quot;jack&quot;</span><br><span class="line">        // &#125;, function(msg) &#123;</span><br><span class="line">        //     console.log(msg);</span><br><span class="line">        // &#125;, &apos;json&apos;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -346,13 +321,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/12/03/闭包/">closure(闭包)</a></p>
+        <p><span>本文标题:</span><a href="/2017/08/02/juueryAjax封装/">封装异步</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">王新鹏</a></p>
-        <p><span>发布时间:</span>2017-12-03, 00:00:00</p>
-        <p><span>最后更新:</span>2018-07-05, 14:59:24</p>
+        <p><span>发布时间:</span>2017-08-02, 21:00:00</p>
+        <p><span>最后更新:</span>2018-07-11, 14:06:33</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/12/03/闭包/" title="closure(闭包)">http://yoursite.com/2017/12/03/闭包/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/12/03/闭包/　　作者: 王新鹏" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/02/juueryAjax封装/" title="封装异步">http://yoursite.com/2017/08/02/juueryAjax封装/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/08/02/juueryAjax封装/　　作者: 王新鹏" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -364,10 +339,16 @@
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/08/11/兔子数列/">
+                    斐波那契数列计算
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/10/10/拉票器jq/">
-                    投票器小案例
+                <a href="/2017/06/03/JQuery轮播图/">
+                    JQuery 轮播图
                 </a>
             </div>
         
@@ -415,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"closure(闭包)　| 王新鹏的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"封装异步　| 王新鹏的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -435,13 +416,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/08/11/兔子数列/" title="上一篇: 斐波那契数列计算">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/10/10/拉票器jq/" title="下一篇: 投票器小案例">
+            <a href="/2017/06/03/JQuery轮播图/" title="下一篇: JQuery 轮播图">
                 <i class="fa fa-angle-right"></i>
             </a>
         
