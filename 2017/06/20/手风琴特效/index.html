@@ -16,13 +16,18 @@
 
                 
 
-                                        <meta property="og:type" content="website">
-<meta property="og:title" content="王新鹏的博客">
-<meta property="og:url" content="http://yoursite.com/tags/cors-代理/index.html">
+                                        <meta name="description" content="手风琴效果">
+<meta name="keywords" content="animate 自定义动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手风琴">
+<meta property="og:url" content="http://yoursite.com/2017/06/20/手风琴特效/index.html">
 <meta property="og:site_name" content="王新鹏的博客">
+<meta property="og:description" content="手风琴效果">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-17T14:53:27.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王新鹏的博客">
+<meta name="twitter:title" content="手风琴">
+<meta name="twitter:description" content="手风琴效果">
 
                                             <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,7 +61,7 @@
                                                                                                 
                                                                                                     <title>
                                                                                                         
-                                                                                                            Tag: cors 代理 |
+                                                                                                            手风琴 |
                                                                                                                 
                                                                                                                     王新鹏的博客
                                                                                                     </title>
@@ -69,9 +74,9 @@
                                                                                                             fancybox: true,
                                                                                                             animate: true,
                                                                                                             isHome: false,
-                                                                                                            isPost: false,
+                                                                                                            isPost: true,
                                                                                                             isArchive: false,
-                                                                                                            isTag: true,
+                                                                                                            isTag: false,
                                                                                                             isCategory: false,
                                                                                                             fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
                                                                                                             scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -267,56 +272,186 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-手风琴特效" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/04/03/代理跨域与cors跨域/" class="archive-article-date">
-      <time datetime="2018-04-03T15:20:00.000Z" itemprop="datePublished">04-03</time>
+    <div class="article-meta">
+      <a href="/2017/06/20/手风琴特效/" class="article-date">
+      <time datetime="2017-06-20T13:00:00.000Z" itemprop="datePublished">2017-06-20</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/03/代理跨域与cors跨域/">代理跨域及cors跨域</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      手风琴
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cors-代理/">cors 代理</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animate-自定义动画/">animate 自定义动画</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ul>
+<li><p>结构说明 </p>
+<ul>
+<li><p>一个外层的div（容器）宽高为照片的宽高 ，相对定位</p>
+</li>
+<li><p>容器内包含五张图片（用li标签包含），依据有父盒子，绝对定</p>
+<p>​</p>
+</li>
+</ul>
+</li>
+<li><p>运动规律，当鼠标移入某个li时，当前的li之前的li的left的值等于当前排列的位置<em>100（不固定）根据展示的图片的宽度计算，之后的图片的left值为当前位置 </em> 100  + 展示图片的宽度</p>
+<p>​</p>
+</li>
+</ul>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: 0;</span><br><span class="line">            padding: 0;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        .box &#123;</span><br><span class="line">            position: relative;</span><br><span class="line">            width: 1200px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            border: 1px solid #ccc;</span><br><span class="line">            margin: 50px auto;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        li &#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            width: 1200px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ul &#123;</span><br><span class="line">            width: 1200px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/1.jpg);left:0px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/2.jpg);left:240px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/3.jpg);left:480px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/4.jpg);left:720px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/5.jpg);left:960px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;../../../练习/第二天/jquery-1.12.4.js &quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 通过观察我们发现：</span><br><span class="line">        //   1 鼠标移入某个li时，运动分为两组</span><br><span class="line">        //    1.1 当前元素和前面的元素的left运动为  i * 100</span><br><span class="line">        //    1.2 后续元素的left运动为  i * 100 + 700</span><br><span class="line">        //   2 鼠标移出时（移出大盒子），设置每个元素的left为原始位置</span><br><span class="line">        var $lis = $(&apos;li&apos;);</span><br><span class="line">        $lis.mouseenter(function() &#123;</span><br><span class="line">       	// 获取当期li的索引</span><br><span class="line">            var index = $(this).index();</span><br><span class="line">            for (var i = 0; i &lt; $lis.length; i++) &#123;</span><br><span class="line">            // 进行判断，如果index &lt;=  当前的li的index则left值为当前位置 * 100</span><br><span class="line">                 if (i &lt;= index) &#123;</span><br><span class="line">                    $($lis[i]).stop().animate(&#123;</span><br><span class="line">                        left: i * 50</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125; </span><br><span class="line">                // 进行判断，如果index &lt;=  当前的li的index则left值为当前位置 * 100 + 展示图片的宽</span><br><span class="line">                else &#123;</span><br><span class="line">                    $($lis[i]).stop().animate(&#123;</span><br><span class="line">                        left: i * 50 + 950</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        $lis.mouseleave(function() &#123;</span><br><span class="line">            for (var i = 0; i &lt; $lis.length; i++) &#123;</span><br><span class="line">                $($lis[i]).stop().animate(&#123;</span><br><span class="line">                    left: i * 240</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/20/手风琴特效/">手风琴</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">王新鹏</a></p>
+        <p><span>发布时间:</span>2017-06-20, 21:00:00</p>
+        <p><span>最后更新:</span>2018-07-17, 22:53:27</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/20/手风琴特效/" title="手风琴">http://yoursite.com/2017/06/20/手风琴特效/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/20/手风琴特效/　　作者: 王新鹏" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/06/22/弹幕效果/">
+                    弹幕效果
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/06/03/JQuery轮播图/">
+                    JQuery 轮播图
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现"><span class="toc-number">1.</span> <span class="toc-text">代码实现</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"手风琴　| 王新鹏的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/06/22/弹幕效果/" title="上一篇: 弹幕效果">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/06/03/JQuery轮播图/" title="下一篇: JQuery 轮播图">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/03/代理跨域与cors跨域/">代理跨域及cors跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/03/jsoph跨域/">jsonp 跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/12/juueryAjax封装/">封装异步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/闭包/">closure(闭包)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/10/拉票器jq/">投票器小案例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/11/兔子数列/">斐波那契数列计算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/22/弹幕效果/">弹幕效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/手风琴特效/">手风琴</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/03/JQuery轮播图/">JQuery 轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/js原生轮播图/">js原生轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/03/搭建博客/">搭建自己的博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
