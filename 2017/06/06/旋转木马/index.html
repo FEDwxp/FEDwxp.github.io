@@ -16,18 +16,18 @@
 
                 
 
-                                        <meta name="description" content="手风琴效果">
-<meta name="keywords" content="animate 自定义动画">
+                                        <meta name="description" content="层级轮播">
+<meta name="keywords" content="很好看的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手风琴">
-<meta property="og:url" content="http://yoursite.com/2017/06/20/手风琴特效/index.html">
+<meta property="og:title" content="旋转木马">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/旋转木马/index.html">
 <meta property="og:site_name" content="王新鹏的博客">
-<meta property="og:description" content="手风琴效果">
+<meta property="og:description" content="层级轮播">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-17T14:53:27.901Z">
+<meta property="og:updated_time" content="2018-07-18T16:00:26.236Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手风琴">
-<meta name="twitter:description" content="手风琴效果">
+<meta name="twitter:title" content="旋转木马">
+<meta name="twitter:description" content="层级轮播">
 
                                             <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -61,7 +61,7 @@
                                                                                                 
                                                                                                     <title>
                                                                                                         
-                                                                                                            手风琴 |
+                                                                                                            旋转木马 |
                                                                                                                 
                                                                                                                     王新鹏的博客
                                                                                                     </title>
@@ -272,11 +272,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-手风琴特效" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-旋转木马" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/20/手风琴特效/" class="article-date">
-      <time datetime="2017-06-20T13:00:00.000Z" itemprop="datePublished">2017-06-20</time>
+      <a href="/2017/06/06/旋转木马/" class="article-date">
+      <time datetime="2017-06-06T13:30:00.000Z" itemprop="datePublished">2017-06-06</time>
 </a>
 
 
@@ -291,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      手风琴
+      旋转木马
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animate-自定义动画/">animate 自定义动画</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/很好看的/">很好看的</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,20 +313,19 @@
       
           
         <ul>
-<li><p>结构说明 </p>
-<ul>
-<li><p>一个外层的div（容器）宽高为照片的宽高 ，相对定位</p>
-</li>
-<li><p>容器内包含五张图片（用li标签包含），依据有父盒子，绝对定</p>
-<p>​</p>
+<li>思路：<ul>
+<li>就是简单的一个轮播效果，不过样式是提前配置好样式，通过样式的变换，实现动画效果</li>
+<li>核心知识点<ul>
+<li>push 从后往前追加 </li>
+<li>pop从后往前删除 返回删除的单元</li>
+<li>shift 从前往后删除 返回删除的单元 </li>
+<li>unshift 从前往后追加</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p>运动规律，当鼠标移入某个li时，当前的li之前的li的left的值等于当前排列的位置<em>100（不固定）根据展示的图片的宽度计算，之后的图片的left值为当前位置 </em> 100  + 展示图片的宽度</p>
-<p>​</p>
-</li>
 </ul>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: 0;</span><br><span class="line">            padding: 0;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        .box &#123;</span><br><span class="line">            position: relative;</span><br><span class="line">            width: 1200px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            border: 1px solid #ccc;</span><br><span class="line">            margin: 50px auto;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        li &#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            width: 1200px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ul &#123;</span><br><span class="line">            width: 1200px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/1.jpg);left:0px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/2.jpg);left:240px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/3.jpg);left:480px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/4.jpg);left:720px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;background-image:url(images/5.jpg);left:960px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;../../../练习/第二天/jquery-1.12.4.js &quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 通过观察我们发现：</span><br><span class="line">        //   1 鼠标移入某个li时，运动分为两组</span><br><span class="line">        //    1.1 当前元素和前面的元素的left运动为  i * 100</span><br><span class="line">        //    1.2 后续元素的left运动为  i * 100 + 700</span><br><span class="line">        //   2 鼠标移出时（移出大盒子），设置每个元素的left为原始位置</span><br><span class="line">        var $lis = $(&apos;li&apos;);</span><br><span class="line">        $lis.mouseenter(function() &#123;</span><br><span class="line">       	// 获取当期li的索引</span><br><span class="line">            var index = $(this).index();</span><br><span class="line">            for (var i = 0; i &lt; $lis.length; i++) &#123;</span><br><span class="line">            // 进行判断，如果index &lt;=  当前的li的index则left值为当前位置 * 100</span><br><span class="line">                 if (i &lt;= index) &#123;</span><br><span class="line">                    $($lis[i]).stop().animate(&#123;</span><br><span class="line">                        left: i * 50</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125; </span><br><span class="line">                // 进行判断，如果index &lt;=  当前的li的index则left值为当前位置 * 100 + 展示图片的宽</span><br><span class="line">                else &#123;</span><br><span class="line">                    $($lis[i]).stop().animate(&#123;</span><br><span class="line">                        left: i * 50 + 950</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        $lis.mouseleave(function() &#123;</span><br><span class="line">            for (var i = 0; i &lt; $lis.length; i++) &#123;</span><br><span class="line">                $($lis[i]).stop().animate(&#123;</span><br><span class="line">                    left: i * 240</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head lang=&quot;en&quot;&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;旋转木马轮播图&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/css.css&quot; /&gt;</span><br><span class="line">    &lt;script src=&quot;../9-旋转木马特效/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;wrap&quot; id=&quot;wrap&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;slide&quot; id=&quot;slide&quot;&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                        &lt;img src=&quot;images/slidepic1.jpg&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">                &lt;li&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                        &lt;img src=&quot;images/slidepic2.jpg&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">                &lt;li&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                        &lt;img src=&quot;images/slidepic3.jpg&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">                &lt;li&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                        &lt;img src=&quot;images/slidepic4.jpg&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">                &lt;li&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                        &lt;img src=&quot;images/slidepic5.jpg&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">            &lt;div class=&quot;arrow&quot; id=&quot;arrow&quot;&gt;</span><br><span class="line">                &lt;a href=&quot;javascript:;&quot; class=&quot;prev&quot; id=&quot;arrLeft&quot;&gt;&lt;/a&gt;</span><br><span class="line">                &lt;a href=&quot;javascript:;&quot; class=&quot;next&quot; id=&quot;arrRight&quot;&gt;&lt;/a&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        //标注了每个图片要运动到的位置</span><br><span class="line">        var config = [&#123;</span><br><span class="line">                width: 400,</span><br><span class="line">                top: 20,</span><br><span class="line">                left: 50,</span><br><span class="line">                opacity: 0.2,</span><br><span class="line">                zIndex: 2</span><br><span class="line">            &#125;, //0</span><br><span class="line">            &#123;</span><br><span class="line">                width: 600,</span><br><span class="line">                top: 70,</span><br><span class="line">                left: 0,</span><br><span class="line">                opacity: 0.8,</span><br><span class="line">                zIndex: 3</span><br><span class="line">            &#125;, //1</span><br><span class="line">            &#123;</span><br><span class="line">                width: 800,</span><br><span class="line">                top: 100,</span><br><span class="line">                left: 200,</span><br><span class="line">                opacity: 1,</span><br><span class="line">                zIndex: 4</span><br><span class="line">            &#125;, //2</span><br><span class="line">            &#123;</span><br><span class="line">                width: 600,</span><br><span class="line">                top: 70,</span><br><span class="line">                left: 600,</span><br><span class="line">                opacity: 0.8,</span><br><span class="line">                zIndex: 3</span><br><span class="line">            &#125;, //3</span><br><span class="line">            &#123;</span><br><span class="line">                width: 400,</span><br><span class="line">                top: 20,</span><br><span class="line">                left: 750,</span><br><span class="line">                opacity: 0.2,</span><br><span class="line">                zIndex: 2</span><br><span class="line">            &#125;, //4</span><br><span class="line">        ]; //config其实就是一个配置单 规定了每张图片的大小位置层级透明度</span><br><span class="line"></span><br><span class="line">        // 给每个图片设置样式</span><br><span class="line">        var $lis = $(&apos;li&apos;);</span><br><span class="line">        $lis.each(function(i, elem) &#123;</span><br><span class="line">            $(elem).stop().animate(config[i]);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        // 获取箭头的父盒子区域，移入移出区域设置箭头显示隐藏</span><br><span class="line">        var $row = $(&apos;#arrow&apos;);</span><br><span class="line">        // 给可视区域绑定鼠标移入事件</span><br><span class="line">        $(&apos;#wrap&apos;).mouseenter(function() &#123;</span><br><span class="line">            // 箭头显示</span><br><span class="line">            $row.stop().animate(&#123;</span><br><span class="line">                opacity: 1</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">        // 获取箭头的父盒子区域，移入移出区域设置箭头显示隐藏</span><br><span class="line">        $(&apos;#wrap&apos;).mouseleave(function() &#123;</span><br><span class="line">            // 箭头隐藏</span><br><span class="line">            $row.stop().animate(&#123;</span><br><span class="line">                opacity: 0</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">        // 给左箭头绑定事件</span><br><span class="line">        $(&apos;#arrLeft&apos;).click(function() &#123;</span><br><span class="line">            //将已定义好的配置项，第一项位置截取再追加到最后。</span><br><span class="line">            config.push(config.shift());</span><br><span class="line">            // 遍历li标签，给每一个图片配置位置，实现动画。</span><br><span class="line">            $lis.each(function(i, elem) &#123;</span><br><span class="line">                $(elem).stop().animate(config[i]);</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;);</span><br><span class="line">        // 给右箭头绑定事件</span><br><span class="line">        $(&apos;#arrRight&apos;).click(function() &#123;</span><br><span class="line">            //将已定义好的配置项，最后位置截取再追加到第一位置。</span><br><span class="line">            config.unshift(config.pop());</span><br><span class="line">            // 遍历li标签，给每一个图片配置位置，实现动画。</span><br><span class="line">            $lis.each(function(i, elem) &#123;</span><br><span class="line">                $(elem).stop().animate(config[i]);</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -335,13 +334,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/20/手风琴特效/">手风琴</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/06/旋转木马/">旋转木马</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">王新鹏</a></p>
-        <p><span>发布时间:</span>2017-06-20, 21:00:00</p>
-        <p><span>最后更新:</span>2018-07-17, 22:53:27</p>
+        <p><span>发布时间:</span>2017-06-06, 21:30:00</p>
+        <p><span>最后更新:</span>2018-07-19, 00:00:26</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/20/手风琴特效/" title="手风琴">http://yoursite.com/2017/06/20/手风琴特效/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/20/手风琴特效/　　作者: 王新鹏" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/06/旋转木马/" title="旋转木马">http://yoursite.com/2017/06/06/旋转木马/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/06/旋转木马/　　作者: 王新鹏" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -354,15 +353,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/22/弹幕效果/">
-                    弹幕效果
+                <a href="/2017/06/20/手风琴特效/">
+                    手风琴
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/06/旋转木马/">
-                    旋转木马
+                <a href="/2017/06/03/JQuery轮播图/">
+                    JQuery 轮播图
                 </a>
             </div>
         
@@ -374,7 +373,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现"><span class="toc-number">1.</span> <span class="toc-text">代码实现</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.</span> <span class="toc-text">代码实现</span></a></li></ol>
         
     </div>
     <style>
@@ -410,7 +409,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"手风琴　| 王新鹏的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"旋转木马　| 王新鹏的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -430,7 +429,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/22/弹幕效果/" title="上一篇: 弹幕效果">
+            <a href="/2017/06/20/手风琴特效/" title="上一篇: 手风琴">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -438,7 +437,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/06/旋转木马/" title="下一篇: 旋转木马">
+            <a href="/2017/06/03/JQuery轮播图/" title="下一篇: JQuery 轮播图">
                 <i class="fa fa-angle-right"></i>
             </a>
         
